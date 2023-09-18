@@ -8,6 +8,6 @@ void chooseSources(HookContext context) {
     case 'local' || 'both':
       context.vars['localSource'] = true;
   }
-  context.vars['remoteSource'] ??= false;
-  context.vars['localSource'] ??= false;
+  context.vars['remote'] ??= false;
+  context.vars['local'] ??= false;
 }

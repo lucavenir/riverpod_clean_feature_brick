@@ -1,0 +1,25 @@
+{{^codegen}}
+{{#hooks}}
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+{{/hooks}}
+{{^hooks}}
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+{{/hooks}}
+{{/codegen}}
+{{#codegen}}
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part '{{name.snakeCase()}}_provider.g.dart';
+{{/codegen}}
+
+import '../../domain/entities/{{name.snakeCase()}}.dart';
+
+{{#codegen}}
+@riverpod
+{{name.pascalCase()}} {{name.camelCase()}}({{name.pascalCase()}}Ref ref) {
+{{/codegen}}
+{{^codegen}}
+final {{name.camelCase()}}Provider = Provider.autoDispose<{{name.pascalCase()}}>((ref) {
+{{/codegen}}
+  return {{name.pascalCase()}}();
+}
+{{^codegen}});{{/codegen}}

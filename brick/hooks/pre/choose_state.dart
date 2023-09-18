@@ -1,13 +1,13 @@
 import 'package:mason/mason.dart';
 
 void chooseState(HookContext context) {
-  final usesState = context.vars['state'] as bool;
-  if (!usesState) return;
-
-  const providerPrompt = 'Does this feature use providers?';
-  final usesProvider = context.logger.confirm(providerPrompt, defaultValue: true);
-  context.vars['usesProvider'] = usesProvider;
-  const controllerPrompt = 'Does this feature use controllers (aka notifiers)?';
-  final usesControllers = context.logger.confirm(controllerPrompt, defaultValue: true);
-  context.vars['usesControllers'] = usesControllers;
+  final state = context.vars['state'] as String;
+  switch (state) {
+    case 'provider' || 'both':
+      context.vars['provider'] = true;
+    case 'controller' || 'both':
+      context.vars['controller'] = true;
+  }
+  context.vars['provider'] ??= false;
+  context.vars['controller'] ??= false;
 }

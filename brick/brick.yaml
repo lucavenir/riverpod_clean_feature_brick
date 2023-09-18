@@ -12,11 +12,16 @@ vars:
   name:
     type: string
     prompt: What is this feature's name?
-    default: new_feature
+    default: my new feature
   state:
-    type: boolean
-    prompt: Does this feature need state management?
-    default: true
+    type: enum
+    prompt: Want to add some state, already?
+    default: provider
+    values:
+      - both
+      - provider
+      - controller
+      - none
   pages:
     type: boolean
     prompt: Does this feature need a new page?
@@ -38,11 +43,3 @@ vars:
       - remote
       - local
       - none
-  codegen:
-    type: boolean
-    prompt: Enable code generation for riverpod?
-    default: true
-  freezed:
-    type: boolean
-    prompt: Enable freezed to generate models and entities?
-    default: true

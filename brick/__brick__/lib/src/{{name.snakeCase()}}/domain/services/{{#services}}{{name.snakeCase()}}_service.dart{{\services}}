@@ -1,0 +1,40 @@
+import '../entities/{{name.snakeCase()}}.dart';
+{{#codegen}}
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part '{{name.snakeCase()}}_service.g.dart';
+{{/codegen}}
+
+{{^codegen}}
+{{#hooks}}
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+{{/hooks}}
+{{^hooks}}
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+{{/hooks}}
+{{/codegen}}
+
+
+{{#codegen}}
+@riverpod
+{{name.pascalCase()}}Service {{name.camelCase()}}Service({{name.pascalCase()}}ServiceRef ref) {
+{{/codegen}}
+{{^codegen}}
+final {{name.camelCase()}}ServiceProvider = Provider.autoDispose<{{name.pascalCase()}}Service>((ref) {
+{{/codegen}}
+  final repository = ref.watch({{name.camelCase()}}RepositoryProvider);
+  return {{name.pascalCase()}}Service(repository);
+}
+{{^codegen}}
+);
+{{/codegen}}
+
+
+final class {{name.pascalCase()}}Service {
+  const {{name.pascalCase()}}Service(this.{{name.camelCase()}});
+  final {{name.pascalCase()}}RepositoryInterface {{name.camelCase()}}Repository;
+
+  {{name.camelCase()}} get{{name.pascalCase()}}() {
+    // TODO add business logic here
+    return {{name.camelCase()}}Repository.get{{name.camelCase()}}();
+  }
+}

@@ -1,0 +1,44 @@
+import '../../domain/entities/{{name.snakeCase()}}.dart';
+{{#codegen}}
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part '{{name.snakeCase()}}_controller.g.dart';
+{{/codegen}}
+
+{{^codegen}}
+{{#hooks}}
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+{{/hooks}}
+{{^hooks}}
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+{{/hooks}}
+{{/codegen}}
+
+{{#codegen}}
+@riverpod
+final class {{name.pascalCase()}}Controller extends _${{name.pascalCase()}}Controller {
+{{/codegen}}
+{{^codegen}}
+final {{name.camelCase()}}ControllerProvider = NotifierProvider.autoDispose<{{name.pascalCase()}}Controller, {{name.pascalCase()}}Controller>(
+  {{name.pascalCase()}}Controller.new,
+);
+final class {{name.pascalCase()}}Controller extends AutoDisposeNotifier<{{name.pascalCase()}}> {
+{{/codegen}}
+  {{#service}}
+  late {{name.pascalCase()}}Service _service;
+  {{/service}}
+  {{^service}}
+  late {{name.pascalCase()}}RepositoryInterface _repository;
+  {{/service}}
+
+  @override
+  {{name.pascalCase()}} build() {
+    {{#service}}
+    _service = ref.watch({{name.camelCase()}}ServiceProvider);
+    return _service.get{{name.pascalCase()}}();
+    {{/service}}
+    {{^service}}
+    _repository = ref.watch({{name.camelCase()}}RepositoryProvider);
+    return _repository.get{{name.pascalCase()}}();
+    {{/service}}
+  }
+}

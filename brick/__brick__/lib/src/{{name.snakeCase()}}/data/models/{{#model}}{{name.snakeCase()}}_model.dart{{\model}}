@@ -1,0 +1,18 @@
+{{#freezed}}
+import 'package:freezed_annotation:freezed_annotation.dart';
+
+part '{{name.snakeCase()}}_model.freezed.dart';
+part '{{name.snakeCase()}}_model.g.dart';
+@freezed
+final class {{name.pascalCase()}}Model with _${{name.pascalCase()}}Model{
+  const factory {{name.pascalCase()}}Model(
+    // TODO add fields here
+  ) = _{{name.pascalCase()}}Model;
+}
+{{/freezed}}
+
+{{^freezed}}
+final class {{name.pascalCase()}}Model {
+  // TODO
+}
+{{/freezed}}
