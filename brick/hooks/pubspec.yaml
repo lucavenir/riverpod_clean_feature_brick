@@ -1,0 +1,9 @@
+name: mason_riverpod_core_hooks
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  mason: ">=0.1.0-dev.50 <0.1.0"
+dev_dependencies:
+  very_good_analysis: ^5.1.0
