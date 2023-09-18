@@ -27,9 +27,7 @@ TL;DR, such architecture is based on the following layers:
 Available customizations:
   - codegen y/n
   - freezed y/n
-  - state y/n
-    - controllers y/n
-    - providers y/n
+  - state: none, controller, provider, both
   - pages y/n
   - services y/n
   - models: y/n
