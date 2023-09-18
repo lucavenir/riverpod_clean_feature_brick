@@ -30,7 +30,7 @@ vars:
     type: boolean
     prompt: Besides a repository, does this feature need a use case layer?
     default: false
-  models:
+  model:
     type: boolean
     prompt: Does this feature need models?
     default: true
