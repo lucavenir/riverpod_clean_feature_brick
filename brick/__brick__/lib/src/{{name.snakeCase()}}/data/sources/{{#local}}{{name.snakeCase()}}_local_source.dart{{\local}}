@@ -31,7 +31,7 @@ final class {{name.pascalCase()}}LocalSource {
   const {{name.pascalCase()}}LocalSource(this.localClient);
   final Never localClient;
 
-  {{name.camelCase()}} get{{name.camelCase()}}() {
+  Never get{{name.camelCase()}}() {
     throw UnimplementedError("TODO: use `localClient` to fetch data");
   }
 }

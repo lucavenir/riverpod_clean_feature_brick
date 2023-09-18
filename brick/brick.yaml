@@ -22,7 +22,7 @@ vars:
       - provider
       - controller
       - none
-  pages:
+  page:
     type: boolean
     prompt: Does this feature need a new page?
     default: true

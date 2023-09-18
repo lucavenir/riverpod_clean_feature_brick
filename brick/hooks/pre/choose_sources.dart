@@ -4,9 +4,9 @@ void chooseSources(HookContext context) {
   final sources = context.vars['sources'] as String;
   switch (sources) {
     case 'remote' || 'both':
-      context.vars['remoteSource'] = true;
+      context.vars['remote'] = true;
     case 'local' || 'both':
-      context.vars['localSource'] = true;
+      context.vars['local'] = true;
   }
   context.vars['remote'] ??= false;
   context.vars['local'] ??= false;

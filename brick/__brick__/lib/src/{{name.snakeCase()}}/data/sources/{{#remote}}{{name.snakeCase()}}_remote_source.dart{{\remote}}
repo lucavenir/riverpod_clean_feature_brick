@@ -31,7 +31,7 @@ final class {{name.pascalCase()}}RemoteSource {
   const {{name.pascalCase()}}RemoteSource(this.remoteClient);
   final Never remoteClient;
 
-  {{name.camelCase()}} get{{name.camelCase()}}() {
+  Never get{{name.pascalCase()}}() {
     throw UnimplementedError("TODO: use `remoteClient` to fetch data");
   }
 }
