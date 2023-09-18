@@ -1,6 +1,12 @@
 
 import '../../domain/entities/{{name.snakeCase()}}.dart';
 import '../../domain/repositories/{{name.snakeCase()}}_repository_interface.dart';
+{{#local}}
+import '../sources/{{name.snakeCase()}}_local_source.dart';
+{{/local}}
+{{#remote}}
+import '../sources/{{name.snakeCase()}}_remote_source.dart';
+{{/remote}}
 
 
 final class {{name.pascalCase()}}Repository implements {{name.pascalCase()}}RepositoryInterface {
