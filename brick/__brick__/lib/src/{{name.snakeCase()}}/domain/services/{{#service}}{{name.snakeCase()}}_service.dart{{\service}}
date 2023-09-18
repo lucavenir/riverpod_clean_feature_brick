@@ -1,4 +1,5 @@
 import '../entities/{{name.snakeCase()}}.dart';
+import '../repositories/{{name.snakeCase()}}_repository_interface.dart';
 {{#codegen}}
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part '{{name.snakeCase()}}_service.g.dart';
@@ -30,11 +31,11 @@ final {{name.camelCase()}}ServiceProvider = Provider.autoDispose<{{name.pascalCa
 
 
 final class {{name.pascalCase()}}Service {
-  const {{name.pascalCase()}}Service(this.{{name.camelCase()}});
+  const {{name.pascalCase()}}Service(this.{{name.camelCase()}}Repository);
   final {{name.pascalCase()}}RepositoryInterface {{name.camelCase()}}Repository;
 
-  {{name.camelCase()}} get{{name.pascalCase()}}() {
+  {{name.pascalCase()}} get{{name.pascalCase()}}() {
     // TODO add business logic here
-    return {{name.camelCase()}}Repository.get{{name.camelCase()}}();
+    return {{name.camelCase()}}Repository.get{{name.pascalCase()}}();
   }
 }

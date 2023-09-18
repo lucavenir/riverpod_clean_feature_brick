@@ -1,4 +1,12 @@
 import '../../domain/entities/{{name.snakeCase()}}.dart';
+{{#service}}
+import '../../domain/services/{{name.snakeCase()}}_service.dart';
+{{/service}}
+{{^service}}
+import '../../domain/repositories/{{name.snakeCase()}}_repository.dart';
+{{/service}}
+
+
 {{#codegen}}
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part '{{name.snakeCase()}}_controller.g.dart';

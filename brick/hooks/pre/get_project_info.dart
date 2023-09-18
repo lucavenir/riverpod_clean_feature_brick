@@ -10,6 +10,9 @@ Future<void> getProjectInfo(HookContext context) async {
   context.vars['codegen'] = usesCodegen;
   final usesFreezed = await _uses('freezed', file: pubspec);
   context.vars['freezed'] = usesFreezed;
+
+  final anyCodegen = usesCodegen || usesFreezed;
+  context.vars['anyCodegen'] = anyCodegen;
 }
 
 Future<bool> _uses(String input, {required io.File file}) async {

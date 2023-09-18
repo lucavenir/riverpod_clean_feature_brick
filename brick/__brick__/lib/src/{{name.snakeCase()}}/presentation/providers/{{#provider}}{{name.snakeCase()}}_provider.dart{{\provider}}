@@ -1,3 +1,11 @@
+import '../../domain/entities/{{name.snakeCase()}}.dart';
+{{#service}}
+import '../../domain/services/{{name.snakeCase()}}_service.dart';
+{{/service}}
+{{^service}}
+import '../../domain/repositories/{{name.snakeCase()}}_repository.dart';
+{{/service}}
+
 {{^codegen}}
 {{#hooks}}
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,7 +19,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part '{{name.snakeCase()}}_provider.g.dart';
 {{/codegen}}
 
-import '../../domain/entities/{{name.snakeCase()}}.dart';
 
 {{#codegen}}
 @riverpod
@@ -20,6 +27,13 @@ import '../../domain/entities/{{name.snakeCase()}}.dart';
 {{^codegen}}
 final {{name.camelCase()}}Provider = Provider.autoDispose<{{name.pascalCase()}}>((ref) {
 {{/codegen}}
-  return {{name.pascalCase()}}();
+  {{#service}}
+  final service = ref.watch({{name.camelCase()}}ServiceProvider);
+  return service.get{{name.pascalCase()}}();
+  {{/service}}
+  {{^service}}
+  final repository = ref.watch({{name.camelCase()}}RepositoryProvider);
+  return repository.get{{name.pascalCase()}}();
+  {{/service}}
 }
 {{^codegen}});{{/codegen}}

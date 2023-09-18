@@ -1,8 +1,3 @@
-import '../entities/{{name.snakeCase()}}.dart';
-{{#codegen}}
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-part '{{name.snakeCase()}}_repository_interface.g.dart';
-{{/codegen}}
 
 {{^codegen}}
 {{#hooks}}
@@ -12,6 +7,22 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 {{/hooks}}
 {{/codegen}}
+
+import '../entities/{{name.snakeCase()}}.dart';
+import '../../data/repositories/{{name.snakeCase()}}_repository.dart';
+
+{{#remote}}
+import '../../data/sources/{{name.snakeCase()}}_remote_source.dart';
+{{/remote}}
+{{#local}}
+import '../../data/sources/{{name.snakeCase()}}_local_source.dart';
+{{/local}}
+
+{{#codegen}}
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part '{{name.snakeCase()}}_repository_interface.g.dart';
+{{/codegen}}
+
 
 
 {{#codegen}}
@@ -42,7 +53,5 @@ final {{name.camelCase()}}RepositoryProvider = Provider.autoDispose<{{name.pasca
 
 
 abstract interface class {{name.pascalCase()}}RepositoryInterface {
-  const {{name.pascalCase()}}RepositoryInterface();
-
   {{name.pascalCase()}} get{{name.pascalCase()}}();
 }
