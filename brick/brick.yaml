@@ -26,7 +26,7 @@ vars:
     type: boolean
     prompt: Does this feature need a new page?
     default: true
-  services:
+  service:
     type: boolean
     prompt: Besides a repository, does this feature need a use case layer?
     default: false
