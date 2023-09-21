@@ -29,6 +29,7 @@ final {{name.camelCase()}}Provider = Provider.autoDispose<{{name.pascalCase()}}>
 {{/codegen}}
   {{#service}}
   final service = ref.watch({{name.camelCase()}}ServiceProvider);
+  // TODO add more logic here?
   return service.get{{name.pascalCase()}}();
   {{/service}}
   {{^service}}

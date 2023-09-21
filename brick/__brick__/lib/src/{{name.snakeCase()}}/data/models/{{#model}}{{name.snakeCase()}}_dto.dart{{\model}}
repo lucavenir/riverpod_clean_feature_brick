@@ -1,5 +1,5 @@
 {{#freezed}}
-import 'package:freezed_annotation:freezed_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '{{name.snakeCase()}}_dto.freezed.dart';
 part '{{name.snakeCase()}}_dto.g.dart';
@@ -8,11 +8,12 @@ final class {{name.pascalCase()}}Dto with _${{name.pascalCase()}}Dto{
   const factory {{name.pascalCase()}}Dto(
     // TODO add fields here
   ) = _{{name.pascalCase()}}Dto;
+  factory {{name.pascalCase()}}Dto.fromJson(Map<String,Object?> json) => _${{name.pascalCase()}}DtoFromJson(json);
 }
 {{/freezed}}
 
 {{^freezed}}
 final class {{name.pascalCase()}}Dto {
-  // TODO
+  // TODO add fields here
 }
 {{/freezed}}

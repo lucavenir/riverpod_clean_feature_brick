@@ -42,6 +42,7 @@ final class {{name.pascalCase()}}Controller extends AutoDisposeNotifier<{{name.p
   {{name.pascalCase()}} build() {
     {{#service}}
     _service = ref.watch({{name.camelCase()}}ServiceProvider);
+    // TODO add more logic here?
     return _service.get{{name.pascalCase()}}();
     {{/service}}
     {{^service}}

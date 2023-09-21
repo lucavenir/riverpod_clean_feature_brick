@@ -9,6 +9,7 @@ Future<void> run(HookContext context) async {
   // Asserts this name can be used (e.g. no special characters)
   final name = context.vars['name'] as String;
   assertValidName(name);
+  context.vars['name'] = name.snakeCase;
 
   chooseSources(context);
   chooseState(context);
