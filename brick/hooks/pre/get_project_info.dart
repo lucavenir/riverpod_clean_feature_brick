@@ -25,5 +25,16 @@ Future<bool> _uses(String input, {required io.File file}) async {
 
 io.File _getPubspec() {
   final isWindows = io.Platform.isWindows;
-  return io.File.fromUri(Uri.file('pubspec.yaml', windows: isWindows));
+  try {
+    return io.File.fromUri(Uri.file('pubspec.yaml', windows: isWindows));
+  } on io.PathNotFoundException {
+    throw const NoPubspecFoundException();
+  }
+}
+
+class NoPubspecFoundException implements Exception {
+  const NoPubspecFoundException();
+
+  @override
+  String toString() => 'No `pubspec.yaml` found. You must create a Flutter project first';
 }
