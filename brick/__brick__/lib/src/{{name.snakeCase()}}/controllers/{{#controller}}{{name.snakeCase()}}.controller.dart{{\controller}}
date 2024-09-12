@@ -27,5 +27,6 @@ final class {{name.pascalCase()}}Controller extends AutoDisposeNotifier<{{name.p
   @override
   {{name.pascalCase()}} build() {
     // TODO your business logic here! (e.g. inject services such as apis, db, cache, etc.)
+    throw UnimplementedError();
   }
 }

@@ -22,5 +22,6 @@ part '{{name.snakeCase()}}.provider.g.dart';
 final {{name.camelCase()}}Provider = Provider.autoDispose<{{name.pascalCase()}}>((ref) {
 {{/codegen}}
   // TODO your business logic here! (e.g. inject services such as apis, db, cache, etc.)
+  throw UnimplementedError();
 }
 {{^codegen}});{{/codegen}}

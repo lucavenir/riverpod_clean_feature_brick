@@ -3,7 +3,7 @@ description: A Riverpod Feature maker for Flutter projects
 
 repository: https://github.com/lucavenir/riverpod_clean_feature_brick
 
-version: 0.0.5
+version: 0.0.6
 
 environment:
   mason: ">=0.1.0-dev.50 <0.1.0"
