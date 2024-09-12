@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 {{/codegen}}
 {{#codegen}}
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-part '{{name.snakeCase()}}_provider.g.dart';
+part '{{name.snakeCase()}}.provider.g.dart';
 {{/codegen}}
 
 
