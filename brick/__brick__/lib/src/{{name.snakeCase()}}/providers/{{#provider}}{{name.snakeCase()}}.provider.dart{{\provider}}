@@ -1,4 +1,4 @@
-import '../models/{{name.snakeCase()}}.dart';
+import '../models/{{name.snakeCase()}}.model.dart';
 
 {{^codegen}}
 {{#hooks}}
