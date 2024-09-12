@@ -10,6 +10,6 @@ class {{name.pascalCase()}} with _${{name.pascalCase()}} {
 {{/freezed}}
 {{^freezed}}
 class {{name.pascalCase()}} {
-
+  // TODO fill me
 }
 {{/freezed}}

@@ -1,11 +1,4 @@
-import '../../domain/entities/{{name.snakeCase()}}.dart';
-{{#service}}
-import '../../domain/services/{{name.snakeCase()}}_service.dart';
-{{/service}}
-{{^service}}
-import '../../domain/repositories/{{name.snakeCase()}}_repository.dart';
-{{/service}}
-
+import '../models/{{name.snakeCase()}}.dart';
 
 {{#codegen}}
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -31,23 +24,8 @@ final {{name.camelCase()}}ControllerProvider = NotifierProvider.autoDispose<{{na
 );
 final class {{name.pascalCase()}}Controller extends AutoDisposeNotifier<{{name.pascalCase()}}> {
 {{/codegen}}
-  {{#service}}
-  late {{name.pascalCase()}}Service _service;
-  {{/service}}
-  {{^service}}
-  late {{name.pascalCase()}}RepositoryInterface _repository;
-  {{/service}}
-
   @override
   {{name.pascalCase()}} build() {
-    {{#service}}
-    _service = ref.watch({{name.camelCase()}}ServiceProvider);
-    // TODO add more logic here?
-    return _service.get{{name.pascalCase()}}();
-    {{/service}}
-    {{^service}}
-    _repository = ref.watch({{name.camelCase()}}RepositoryProvider);
-    return _repository.get{{name.pascalCase()}}();
-    {{/service}}
+    // TODO your business logic here! (e.g. inject services such as apis, db, cache, etc.)
   }
 }

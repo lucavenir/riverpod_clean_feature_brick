@@ -1,10 +1,4 @@
-import '../../domain/entities/{{name.snakeCase()}}.dart';
-{{#service}}
-import '../../domain/services/{{name.snakeCase()}}_service.dart';
-{{/service}}
-{{^service}}
-import '../../domain/repositories/{{name.snakeCase()}}_repository.dart';
-{{/service}}
+import '../models/{{name.snakeCase()}}.dart';
 
 {{^codegen}}
 {{#hooks}}
@@ -27,14 +21,6 @@ part '{{name.snakeCase()}}_provider.g.dart';
 {{^codegen}}
 final {{name.camelCase()}}Provider = Provider.autoDispose<{{name.pascalCase()}}>((ref) {
 {{/codegen}}
-  {{#service}}
-  final service = ref.watch({{name.camelCase()}}ServiceProvider);
-  // TODO add more logic here?
-  return service.get{{name.pascalCase()}}();
-  {{/service}}
-  {{^service}}
-  final repository = ref.watch({{name.camelCase()}}RepositoryProvider);
-  return repository.get{{name.pascalCase()}}();
-  {{/service}}
+  // TODO your business logic here! (e.g. inject services such as apis, db, cache, etc.)
 }
 {{^codegen}});{{/codegen}}

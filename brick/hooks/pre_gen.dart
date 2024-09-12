@@ -1,6 +1,5 @@
 import 'package:mason/mason.dart';
 
-import 'pre/choose_sources.dart';
 import 'pre/choose_state.dart';
 import 'pre/get_project_info.dart';
 import 'pre/valid_name.dart';
@@ -11,7 +10,6 @@ Future<void> run(HookContext context) async {
   assertValidName(name);
   context.vars['name'] = name.snakeCase;
 
-  chooseSources(context);
   chooseState(context);
   await getProjectInfo(context);
 }

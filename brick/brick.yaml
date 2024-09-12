@@ -3,7 +3,7 @@ description: A Riverpod Feature maker for Flutter projects
 
 repository: https://github.com/lucavenir/riverpod_clean_feature_brick
 
-version: 0.0.2
+version: 0.0.3
 
 environment:
   mason: ">=0.1.0-dev.50 <0.1.0"
@@ -12,34 +12,21 @@ vars:
   name:
     type: string
     prompt: What is this feature's name?
-    default: new_feature
+    default: something_new
   state:
     type: enum
-    prompt: Want to add some state, already?
+    prompt: How does this feature handle state?
     default: provider
     values:
-      - both
       - provider
       - controller
-      - none
+      - both
+      - "no state is involved"
   page:
     type: boolean
     prompt: Does this feature need a new page?
     default: true
-  service:
-    type: boolean
-    prompt: Besides a repository, does this feature need a use case ("service") layer?
-    default: false
   model:
     type: boolean
-    prompt: Does this feature need models?
+    prompt: Does this feature need new models?
     default: true
-  sources:
-    type: enum
-    prompt: Does this feature need sources?
-    default: both
-    values:
-      - both
-      - remote
-      - local
-      - none
