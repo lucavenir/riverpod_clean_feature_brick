@@ -7,6 +7,10 @@ This is *still* an opinionated brick, and its output is based on [this architect
 ## Getting started
 New to Mason? Read [the documentation](https://docs.brickhub.dev/installing) to learn how to spin up this brick!
 
+## Install
+
+  mason add --global riverpod_clean_feature --git-url https://github.com/lucavenir/riverpod_clean_feature_brick --git-path brick
+
 ## Important Note
 This brick works best with [this other brick](https://github.com/lucavenir/riverpod_core_brick), that sets up the architecture mentioned above. It also prepares the ground for you to set up flavoring, code generation, layering, etc.
 
